@@ -1,0 +1,89 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "266bd27ee0c7e68221e99d7e09fbb99a",
+    "entities": [
+      {
+        "tableName": "package_info",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`label_id` TEXT NOT NULL, `tracking_id` TEXT NOT NULL, `sender` TEXT NOT NULL, PRIMARY KEY(`label_id`))",
+        "fields": [
+          {
+            "fieldPath": "_label_id",
+            "columnName": "label_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_tracking_id",
+            "columnName": "tracking_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_sender",
+            "columnName": "sender",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "label_id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "signature_info",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`signature_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `label_id` TEXT NOT NULL, `receiver` TEXT NOT NULL, `receive_date` TEXT NOT NULL, `signature_pic_id` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "_signature_id",
+            "columnName": "signature_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_label_id",
+            "columnName": "label_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_receiver",
+            "columnName": "receiver",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_receiver_date",
+            "columnName": "receive_date",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_signature_pic_id",
+            "columnName": "signature_pic_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "signature_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"266bd27ee0c7e68221e99d7e09fbb99a\")"
+    ]
+  }
+}

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.wksadmin.mailroom.Mailroom">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="0dp"
+            android:ems="10"
+            android:hint="Receiver Name"
+            android:singleLine="true"
+            android:text=""
+            android:textColorLink="@android:color/holo_red_light" />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <ListView
+        android:id="@+id/mainListView"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:hint="Receiver Package"
+        android:layout_marginTop="55dp"
+        android:layout_height="450dp"
+         />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_sign"
+        android:layout_width="70dp"
+        android:layout_height="72dp"
+        android:layout_margin="@dimen/fab_margin"
+        android:clickable="true"
+        app:backgroundTint="@android:color/holo_blue_dark"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="left|bottom"
+        app:srcCompat="?android:attr/fingerprintAuthDrawable" />
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_mailroom"
+        tools:layout_editor_absoluteY="55dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_scan"
+        android:layout_width="70dp"
+        android:layout_height="72dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:backgroundTint="@android:color/holo_orange_dark"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="right|bottom"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_sync"
+        android:layout_width="70dp"
+        android:layout_height="72dp"
+        android:layout_gravity="bottom|center"
+        android:layout_margin="@dimen/fab_margin"
+        app:backgroundTint="@android:color/holo_green_dark"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="bottom|center"
+        app:srcCompat="@android:drawable/ic_popup_sync" />
+
+
+    <android.gesture.GestureOverlayView
+        android:id="@+id/signaturePad"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="85dp"
+        android:layout_weight="5"
+        android:background="@color/drawpad"
+        android:eventsInterceptionEnabled="true"
+        android:fadeEnabled="false"
+        android:fadeOffset="99999999"
+        android:gestureColor="@android:color/black"
+        android:gestureStrokeLengthThreshold="0.1"
+        android:gestureStrokeType="multiple"
+        android:orientation="vertical"></android.gesture.GestureOverlayView>
+
+
+
+</android.support.design.widget.CoordinatorLayout>
